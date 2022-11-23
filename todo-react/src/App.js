@@ -17,7 +17,7 @@ const [todo, setTodo] = useState([
     status:true
   },
   {
-    id:2,
+    id:3,
     title: 'third todo',
     status:true
   },
@@ -28,7 +28,7 @@ const [todo, setTodo] = useState([
   return (
     <div className="App">
       <Header/>
-      <NewTask/>
+      <NewTask setTodo={setTodo} todo={todo}/>
       <Todos todo={todo} setTodo={setTodo}/>
     </div>
   )
