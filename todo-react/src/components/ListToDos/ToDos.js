@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import s from './ListToDos.module.css'
 
 function Todos({todo, setTodo}) {
 
@@ -43,7 +44,7 @@ function Todos({todo, setTodo}) {
     <div>
    {   
    todo.map(item => (
-    <div key={item.id}>
+    <div key={item.id} className={s.listItems} >
        
        
       {
