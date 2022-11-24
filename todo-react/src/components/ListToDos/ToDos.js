@@ -22,6 +22,8 @@ function Todos({todo, setTodo}) {
    todo.map(item => (
     <div key={item.id}>
         <div>{ item.title }</div>
+        <div>{ item.desc }</div>
+        <div>{ item.time }</div>
         <button onClick={() => deleteToDo(item.id)}>Удалить</button>
         <button onClick={() => statusToDo(item.id)}>Завершить</button>
         </div>

@@ -5,21 +5,31 @@ import {v4 as uuid} from "uuid"
 
 function NewTask({todo, setTodo}){
 
-  const[value, setValue] = useState('')
+  const[taskName, setTaskName] = useState('');
+
+  const[description, setDescription] = useState('');
+
+  const[date, setDate] = useState('');
 
   function saveToDo(){
       setTodo(
         [...todo,{
           id:uuid(),
-          title:value,
+          title:taskName,
+          desc:description,
+          time:date,
           status:true
         }]
       )
-      setValue('')
+      setTaskName('')
+      setDescription('')
+      setDate('')
   }
   return (
     <div>
-      <input placeholder ='введите задачу' value={value} onChange={(e)=>setValue(e.target.value)} />
+      <input placeholder ='введите задачу' value={taskName} onChange={(e)=>setTaskName(e.target.value)} />
+      <input placeholder ='введите задачу' value={description} onChange={(e)=>setDescription(e.target.value)} />
+      <input placeholder ='введите задачу' value={date} onChange={(e)=>setDate(e.target.value)} />
       <button onClick={saveToDo}>Сохранить</button>
     </div>
   )

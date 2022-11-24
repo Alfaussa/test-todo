@@ -9,6 +9,8 @@ const [todo, setTodo] = useState([
   {
     id:1,
     title: 'first todo',
+    desc:'making first to do',
+    time: '05.10.2022',
     status:true
   },
   {
