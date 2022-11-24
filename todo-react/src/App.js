@@ -16,12 +16,17 @@ const [todo, setTodo] = useState([
   {
     id:2,
     title: 'second todo',
+    desc:'making second to do',
+    time: '06.10.2022',
     status:true
   },
   {
     id:3,
     title: 'third todo',
+    desc:'making third to do',
+    time: '07.10.2022',
     status:true
+   
   },
 ])
 

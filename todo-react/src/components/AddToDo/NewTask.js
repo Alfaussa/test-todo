@@ -27,9 +27,9 @@ function NewTask({todo, setTodo}){
   }
   return (
     <div>
-      <input placeholder ='введите задачу' value={taskName} onChange={(e)=>setTaskName(e.target.value)} />
-      <input placeholder ='введите задачу' value={description} onChange={(e)=>setDescription(e.target.value)} />
-      <input placeholder ='введите задачу' value={date} onChange={(e)=>setDate(e.target.value)} />
+      <input placeholder ='Введите задачу' value={taskName} onChange={(e)=>setTaskName(e.target.value)} />
+      <input placeholder ='Введите описание' value={description} onChange={(e)=>setDescription(e.target.value)} />
+      <input placeholder ='Дата' value={date} onChange={(e)=>setDate(e.target.value)} />
       <button onClick={saveToDo}>Сохранить</button>
     </div>
   )

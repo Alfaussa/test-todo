@@ -1,6 +1,12 @@
-import React from "react";
+import React, {useState} from "react";
 
 function Todos({todo, setTodo}) {
+
+  const[edit, setEdit] = useState('')
+  const[taskName, setTaskName] = useState('');
+  const[description, setDescription] = useState('');
+  const[date, setDate] = useState('');
+
 
   function deleteToDo(id){
     let newToDo = [...todo].filter(item => item.id !== id);
@@ -15,17 +21,57 @@ function Todos({todo, setTodo}) {
     })
     setTodo(newToDo)
   }
-
+  function editToDo(id, title, desc, time){
+    setEdit(id)
+    setTaskName(title)
+    setDescription(desc)
+    setDate(time)
+  }
+  function saveToDo(id){
+    let newToDo = [...todo].map(item => {
+      if(item.id == id){
+        item.title = taskName
+        item.desc = description
+        item.time = date
+      }
+      return item
+    })
+    setTodo(newToDo)
+    setEdit(null)
+  }
   return (
     <div>
    {   
    todo.map(item => (
     <div key={item.id}>
-        <div>{ item.title }</div>
-        <div>{ item.desc }</div>
-        <div>{ item.time }</div>
+       
+       
+      {
+          edit  == item.id ?
+          <div>
+            <input value={taskName} onChange={(e)=>setTaskName(e.target.value)}/>
+            <input value={description} onChange={(e)=>setDescription(e.target.value)}/>
+            <input value={date} onChange={(e)=>setDate(e.target.value)}/>
+          </div> : 
+          <><><div>{item.title}</div>
+             <div>{item.desc}</div></>
+             <div>{item.time}</div></>
+      }
+       
+      {
+         edit  == item.id ?
+         <div>
+          <button onClick={() => saveToDo(item.id)}>Сохранить</button> 
+         </div>
+         :
+         <div>
         <button onClick={() => deleteToDo(item.id)}>Удалить</button>
+        <button onClick={() => editToDo(item.id, item.title, item.desc, item.time)}>Редактировать</button>
         <button onClick={() => statusToDo(item.id)}>Завершить</button>
+           </div>
+      }
+       
+       
         </div>
       ))}
     </div>
