@@ -9,3 +9,7 @@
     background: red;
     border-radius: 6px;
 }
+.close{
+    color:gray;
+    text-decoration-line: line-through;
+}

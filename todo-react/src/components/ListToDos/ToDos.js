@@ -3,6 +3,7 @@ import s from './ListToDos.module.css'
 
 function Todos({todo, setTodo}) {
 
+  
   const[edit, setEdit] = useState('')
   const[taskName, setTaskName] = useState('');
   const[description, setDescription] = useState('');
@@ -29,14 +30,17 @@ function Todos({todo, setTodo}) {
     setDate(time)
   }
   function saveToDo(id){
+    
     let newToDo = [...todo].map(item => {
       if(item.id == id){
         item.title = taskName
         item.desc = description
         item.time = date
       }
-      return item
-    })
+  return item
+      
+      })
+   
     setTodo(newToDo)
     setEdit(null)
   }
@@ -54,7 +58,7 @@ function Todos({todo, setTodo}) {
             <input value={description} onChange={(e)=>setDescription(e.target.value)}/>
             <input value={date} onChange={(e)=>setDate(e.target.value)}/>
           </div> : 
-          <><><div>{item.title}</div>
+          <><><div className={!item.status ? s.close : ''}>{item.title}</div>
              <div>{item.desc}</div></>
              <div>{item.time}</div></>
       }

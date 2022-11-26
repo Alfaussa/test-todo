@@ -1,9 +1,13 @@
+
 import React, { useState } from "react";
 import Header from './components/Header/Header';
 import NewTask from "./components/AddToDo/NewTask";
 import Todos from "./components/ListToDos/ToDos";
-// import DatePick from "./Calendar/Calendar";
-// import NewDate from "./Calendar/Calendar";
+import FileUpload from "./components/FileUploader/FileUploader"
+
+
+
+
 
 function App(){
 
@@ -13,6 +17,7 @@ const [todo, setTodo] = useState([
     title: 'first todo',
     desc:'making first to do',
     time: '05.10.2022',
+    file:'',
     status:true
   },
   {
@@ -39,7 +44,8 @@ const [todo, setTodo] = useState([
       <Header/>
       <NewTask setTodo={setTodo} todo={todo}/>
       <Todos todo={todo} setTodo={setTodo}/>
-      {/* <DatePick/> */}
+     
+
     </div>
   )
 }
