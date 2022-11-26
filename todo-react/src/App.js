@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Header from './components/Header/Header';
 import NewTask from "./components/AddToDo/NewTask";
 import Todos from "./components/ListToDos/ToDos";
+// import DatePick from "./Calendar/Calendar";
+// import NewDate from "./Calendar/Calendar";
 
 function App(){
 
@@ -37,6 +39,7 @@ const [todo, setTodo] = useState([
       <Header/>
       <NewTask setTodo={setTodo} todo={todo}/>
       <Todos todo={todo} setTodo={setTodo}/>
+      {/* <DatePick/> */}
     </div>
   )
 }
