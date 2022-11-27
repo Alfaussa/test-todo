@@ -4,13 +4,23 @@ import {v4 as uuid} from "uuid"
 import FileUpload from "../FileUploader/FileUploader"
 import storageRef from "../FileUploader/FileUploader"
 import s from './NewTask.module.css'
+
+/** Создаем компоненту NewTask */
 function NewTask({todo, setTodo}){
 
+    /** Hookи для хранения значений полей ввода(по умолчанию пустые)
+ *
+ */
   const[taskName, setTaskName] = useState('');
 
   const[description, setDescription] = useState('');
 
   const[date, setDate] = useState('');
+
+  /** Функция обновления state
+ * @description создается массив с объектами
+ *  
+ */
 
   function saveToDo(){
     if(taskName === "") return;
@@ -20,7 +30,7 @@ function NewTask({todo, setTodo}){
           title:taskName,
           desc:description,
           time:date,
-          file:storageRef,
+      
           status:true
         }]
       )
@@ -28,6 +38,10 @@ function NewTask({todo, setTodo}){
       setDescription('')
       setDate('')
   }
+
+    /** Возвращаем элементы для создания новой задачи
+ 
+ */
   return (
     <div className={s.newContainer}>
       <input placeholder ='Type the task name' value={taskName} onChange={(e)=>setTaskName(e.target.value)} />

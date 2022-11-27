@@ -1,15 +1,14 @@
 
 import React, { useState } from "react";
+/** Импортируем компоненты */
 import Header from './components/Header/Header';
 import NewTask from "./components/AddToDo/NewTask";
 import Todos from "./components/ListToDos/ToDos";
-import FileUpload from "./components/FileUploader/FileUploader"
-
-
-
 
 
 function App(){
+
+  /** Создаем hook в котором есть массив объектов/задач */
 
 const [todo, setTodo] = useState([
   {
@@ -38,9 +37,12 @@ const [todo, setTodo] = useState([
 ])
 
 
-
+/** Возвращаем компоненты с переданными пропсами
+ * @returns
+ */
   return (
     <div className="App">
+      
       <Header/>
       <NewTask setTodo={setTodo} todo={todo}/>
       <Todos todo={todo} setTodo={setTodo}/>

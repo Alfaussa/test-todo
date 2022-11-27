@@ -1,26 +1,32 @@
+/** @module */
 import React, {useState} from "react"
 import storage from "../../firebaseConfig"
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import styles from "./FileUploader.module.css"
 
+
+/** Создаем компоненту FileUpload
+ *
+ */
 function FileUpload() {
 const [file, setFile] = useState("");
 const [percent, setPercent] = useState(0);
 function handleChange(event) {
 setFile(event.target.files[0]);
 }
-
+/** не позволяет загрузить пустой
+ *
+ */
 const handleUpload = () => {
     if (!file) {
-    alert("Please upload an image first!");
+    alert("Пожалуйста, добавьте файл!");
     }
     
     const storageRef = ref(storage, `/files/${file.name}`);
-    
-    // progress can be paused and resumed. It also exposes progress updates.
-    // Receives the storage reference and the file to upload.
+
     const uploadTask = uploadBytesResumable(storageRef, file);
-    
+    /** прогресс загрузки файла
+ *
+ */
     uploadTask.on(
     "state_changed",
     (snapshot) => {
@@ -28,12 +34,14 @@ const handleUpload = () => {
     (snapshot.bytesTransferred / snapshot.totalBytes) * 100
     );
     
-    // update progress
+  
     setPercent(percent);
     },
     (err) => console.log(err),
     () => {
-    // download url
+       /** ссылка на файл для скачивания
+ *
+ */
     getDownloadURL(uploadTask.snapshot.ref).then((url) => {
     console.log(url);
     });
