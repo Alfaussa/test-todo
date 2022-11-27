@@ -1,7 +1,7 @@
 import React, {useState} from "react"
 import storage from "../../firebaseConfig"
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-
+import styles from "./FileUploader.module.css"
 
 function FileUpload() {
 const [file, setFile] = useState("");
@@ -42,11 +42,11 @@ const handleUpload = () => {
     };
     
     return (
-    <div>
-    <input type="file" onChange={handleChange} accept="/image/*" />
-    <button onClick={handleUpload}>Upload to Firebase</button>
-    <p>{percent} "% done"</p>
-    </div>
+ 
+    <><input type="file" onChange={handleChange} accept="/image/*"></input>
+   <div> <button onClick={handleUpload}>Upload file</button></div>
+    <p style={{marginLeft:'10px'}}>{percent} "% uploaded"</p></>
+  
     );
     }
 

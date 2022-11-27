@@ -66,13 +66,13 @@ function Todos({todo, setTodo}) {
       {
          edit  == item.id ?
          <div>
-          <button onClick={() => saveToDo(item.id)}>Сохранить</button> 
+          <button onClick={() => saveToDo(item.id)}>Save</button> 
          </div>
          :
          <div>
-        <button onClick={() => deleteToDo(item.id)}>Удалить</button>
-        <button onClick={() => editToDo(item.id, item.title, item.desc, item.time)}>Редактировать</button>
-        <button onClick={() => statusToDo(item.id)}>Завершить</button>
+        <button onClick={() => deleteToDo(item.id)}>Delete</button>
+        <button onClick={() => editToDo(item.id, item.title, item.desc, item.time)}>Edit</button>
+        <button onClick={() => statusToDo(item.id)}>Close</button>
            </div>
       }
        

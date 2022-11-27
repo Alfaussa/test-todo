@@ -2,14 +2,20 @@
 .listItems{
     display: flex;
     justify-content: space-between;
-    flex-direction: row;
+    flex-direction:column;
     margin-top: 24px;
+    margin: 10px;
+   
+
 }
 .listItems:hover{
-    background: red;
-    border-radius: 6px;
+    background: rgb(155, 153, 153);
+    border-radius: 4px;
 }
 .close{
-    color:gray;
+    color:rgb(14, 13, 13);
     text-decoration-line: line-through;
+   
+
+
 }
